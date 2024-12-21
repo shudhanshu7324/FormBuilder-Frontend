@@ -1,0 +1,26 @@
+.signup-div{
+    width: 20vw;
+    margin: auto;
+    margin-top: 80px;
+    font-family: 'Poppins';
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#confirm-password label{
+    color: #FF4141;
+}
+
+#confirm-password input{
+    border: 1px solid #FF272780;
+}

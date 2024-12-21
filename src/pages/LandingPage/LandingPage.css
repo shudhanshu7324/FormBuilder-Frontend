@@ -1,0 +1,194 @@
+.landing-page {
+  /* height: 100vh; */
+  /* width: 100vw; */
+  background: linear-gradient(0deg, #121212, #171923, #171923);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.nav-link {
+  display: flex;
+  gap: 20px;
+}
+
+.first-link {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 16px;
+  color: #7ea6ff;
+  text-decoration: none;
+  border: 1px solid #7ea6ff;
+  border-radius: 6px;
+  padding: 12px 15px;
+}
+
+.second-link {
+  font-size: 16px;
+  color: #ffffff;
+  padding: 12px 15px;
+  background-color: #1a5fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "Open Sans";
+}
+
+.hero-content h1 {
+  font-family: "Outfit";
+  font-size: 72px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4b83ff, #b794f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p{
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.link{
+    font-family: 'Open Sans';
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #1A5FFF;
+    border-radius: 6px;
+    padding: 15px 20px;
+    margin-top: 20px;
+}
+
+.hero{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-div1 img{
+  width: 350px;
+}
+
+.hero-div2 img{
+  width: 300px;
+}
+
+.hero-content{
+  width: 65vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-content p{
+  display: flex;
+  text-align: center;
+  width: 55vw;
+}
+
+.figure{
+  height: 120vh;
+  position: relative;
+}
+
+.orange{
+  position: absolute;
+  left: 6%;
+}
+
+.blue{
+  position: absolute;
+  top: 0;
+  right: 6%;
+}
+
+.orange img{
+  width: 40vw;
+}
+
+.blue img{
+  width: 40vw;
+}
+
+.figure-img{
+  position: absolute;
+  z-index: 5;
+  left: 2.5%;
+  top: 6%;
+}
+
+.figure-img img{
+  width: 80vw;
+  height: 100vh;
+  margin-left: 110px;
+}
+
+.footer{
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.formbot{
+  width: 150px;
+}
+
+.formbot img{
+  width: 30px;
+}
+
+.formbot span{
+  font-size: 15px;
+  margin-left: -15px;
+}
+
+.formbot p{
+  font-family: 'Open Sans';
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.footer-title{
+  font-family: 'Outfit';
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.footer-content{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-content p{
+  font-family: 'Open Sans';
+  font-weight: 400;
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-arrow{
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  /* padding-top: 5px; */
+}

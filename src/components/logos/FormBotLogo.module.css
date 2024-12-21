@@ -1,0 +1,16 @@
+.logo_div{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+img{
+    width: 45px;
+}
+
+.span{
+    font-family: Outfit;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 24px;
+}
