@@ -69,3 +69,7 @@ input{
     width: 100%;
     margin-bottom: 15px;
 }
+
+button{
+    box-shadow: 0 4px 10px #E9444B40;
+}
