@@ -64,7 +64,7 @@ const Login = () => {
               }
             />
           </div>
-          <button type="submit" className="register-btn">
+          <button type="submit" className="register-btn button">
             Log In
           </button>
         </form>
@@ -76,7 +76,7 @@ const Login = () => {
             alignItems: "center",
             position: "relative",
           }}
-          className="register-btn"
+          className="register-btn button"
         >
           <div
             style={{

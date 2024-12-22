@@ -135,7 +135,7 @@ const Signup = () => {
                 </span>
               )}
           </div>
-          <button className="register-btn" type="submit">
+          <button className="register-btn button" type="submit">
             Sign Up
           </button>
         </form>
@@ -147,7 +147,7 @@ const Signup = () => {
             alignItems: "center",
             position: "relative",
           }}
-          className="register-btn"
+          className="register-btn button"
         >
           <div
             style={{

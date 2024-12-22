@@ -1,0 +1,43 @@
+.navbar{
+    height: 65px;
+    border-bottom: 2px solid #d8d8da;
+}
+
+
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    background-color: gray;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: white;
+    border: 1px solid #3D3D3F;
+    border-radius: 10px;
+    position: absolute;
+    top: 1.5%;
+    left: 39%;
+}
+
+.dropdown-box{
+    padding: 10px;
+    border: 0.7px solid #3D3D3F;
+    border-collapse: collapse;
+    background-color: #272727;
+}
+
+.setting-link{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}

@@ -1,9 +1,10 @@
 import React from 'react'
+import Navbar from '../../components/navbar/Navbar.jsx'
 
 const FormPage = () => {
   return (
     <div>
-      <h1>FormPage</h1>
+      <Navbar/>
     </div>
   )
 }
