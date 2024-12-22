@@ -1,6 +1,8 @@
 .navbar{
     height: 65px;
     border-bottom: 2px solid #d8d8da;
+    display: flex;
+
 }
 
 
@@ -40,4 +42,35 @@ button{
     color: white;
     font-size: 16px;
     font-weight: 600;
+}
+
+.toggle-theme{
+    display: flex;
+    width: 170px;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+    margin-left: 70vw;
+}
+
+.toggle-theme span{
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.toggle-box{
+    width: 50px;
+    height: 24px;
+    background-color: #1A5FFF;
+    border-radius: 50px;
+    display: flex;
+    padding: 4px;
+}
+
+.toggle-circle{
+    height: 16px;
+    width: 16px;
+    background-color: white;
+    border-radius: 100%;
 }
