@@ -2,13 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { ThemeContext } from "../../App";
+import { getUser } from "../../services";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const { theme, setTheme } = useContext(ThemeContext);
-  const navigate = useNavigate()
+  const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
@@ -22,15 +24,26 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    // Clear relevant keys from localStorage
     localStorage.removeItem("token");
     localStorage.removeItem("id");
     localStorage.removeItem("theme");
     localStorage.removeItem("isAuthenticated");
 
-    // Redirect to the home page
     navigate("/");
   };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const user = await getUser();
+        setUserData(user);
+      } catch (error) {
+        console.error("Error fetching user data:", error.message);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   useEffect(() => {
     // Initialize theme from localStorage
@@ -58,7 +71,7 @@ const Navbar = () => {
           }}
           onClick={toggleDropdown}
         >
-          Username
+          {userData === null ? "workspace" : `${userData.username}'s workspace`}
           <img
             style={{
               width: "12px",

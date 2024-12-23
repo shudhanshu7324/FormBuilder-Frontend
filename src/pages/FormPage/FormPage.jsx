@@ -15,6 +15,74 @@ const FormPage = () => {
       }}
     >
       <Navbar />
+      <div className="folder-list">
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+        <button className="add-folder">
+          <img src="addfolder.png" alt="addfolder" />
+          Create a folder
+        </button>
+      </div>
+      <div className="form-list">
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+        <button className="add-form">
+          <img src="add.png" alt="" />
+          <span>Create a typebot</span>
+        </button>
+      </div>
     </div>
   );
 };

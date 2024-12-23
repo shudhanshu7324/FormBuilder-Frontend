@@ -1,6 +1,6 @@
 .navbar{
     height: 65px;
-    border-bottom: 2px solid #d8d8da;
+    border-bottom: 1px solid #3D3D3F;
     display: flex;
 
 }
@@ -9,7 +9,7 @@
 .dropdown{
     display: flex;
     flex-direction: column;
-    width: 280px;
+    min-width: 300px;
     background-color: gray;
     font-size: 16px;
     font-family: 'Open Sans';

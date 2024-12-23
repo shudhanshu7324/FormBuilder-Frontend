@@ -73,3 +73,28 @@ export const login = async (data) => {
     };
   }
 }
+
+export const getUser = async () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("User is not authenticated. Please log in.");
+  }
+
+  const response = await fetch(`${BACKEND_URL}/api/v1/username`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token
+    },
+  })
+
+  if (!response.ok) {
+    // Use response status and message for detailed error reporting
+    const errorMessage = await response.text();
+    throw new Error(
+      `Failed to fetch expenses: ${response.status} ${response.statusText} - ${errorMessage}`
+    );
+  }
+
+  return response.json();
+}
