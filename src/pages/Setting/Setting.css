@@ -1,0 +1,80 @@
+/* Container styles */
+.container {
+    background-color: #1e1e2f;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Title styles */
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styles */
+  .form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Input styles */
+  .input {
+    background-color: #2e2e3f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* Password container styles */
+  .password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  /* Password input styles */
+  .password-input {
+    background-color: #2e2e3f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  /* Eye icon styles */
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #aaa;
+  }
+  
+  /* Update button styles */
+  .update-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Logout button styles */
+  .logout-button {
+    margin-top: 20px;
+    background-color: transparent;
+    color: #ff4d4d;
+    border: none;
+    cursor: pointer;
+  }
+  

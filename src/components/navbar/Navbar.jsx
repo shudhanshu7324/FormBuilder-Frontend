@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { ThemeContext } from "../../App";
 
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const { theme, setTheme } = useContext(ThemeContext);
+  const navigate = useNavigate()
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
@@ -18,6 +19,17 @@ const Navbar = () => {
     setTheme(newTheme);
     setIsDarkMode(newTheme === "dark");
     localStorage.setItem("theme", newTheme);
+  };
+
+  const handleLogout = () => {
+    // Clear relevant keys from localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    localStorage.removeItem("theme");
+    localStorage.removeItem("isAuthenticated");
+
+    // Redirect to the home page
+    navigate("/");
   };
 
   useEffect(() => {
@@ -62,12 +74,12 @@ const Navbar = () => {
         {isDropdownOpen && (
           <>
             <div className="dropdown-box">
-              <Link className="setting-link" to={"/settings"}>
+              <Link className="setting-link" to={"/setting"}>
                 Settings
               </Link>
             </div>
             <div className="dropdown-box">
-              <button>Logout</button>
+              <button onClick={handleLogout}>Logout</button>
             </div>
           </>
         )}
