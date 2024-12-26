@@ -1,0 +1,46 @@
+.form-modal{
+    height: 250px;
+    width: 500px;
+    background-color: rgba(24, 24, 27, 1);
+    border: 1px solid rgba(71, 71, 74, 1);
+    position: absolute;
+    top: 26%;
+    border-radius: 10px;
+    z-index: 10;
+    left: 32%;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    padding-left: 50px;
+    box-shadow: 0px 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+.form-modal h1{
+    font-size: 28px;
+}
+
+.form-modal input{
+    width: 90%;
+    border: none;
+    background-color: rgba(31, 31, 35, 1);
+    border-radius: 6px;
+    padding: 12px;
+    color: rgba(161, 161, 161, 0.31);
+    font-size: 18px;
+}
+
+.form-modal-btn button{
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.form-modal-btn{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 80px;    
+}

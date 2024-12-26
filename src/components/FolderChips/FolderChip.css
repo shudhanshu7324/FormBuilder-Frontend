@@ -1,0 +1,16 @@
+.folder-chip {
+  min-width: 40px;
+  height: 42px;
+  background-color: #272727;
+  border-radius: 6px;
+  padding: 8px;
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  color: white;
+}
+
+.folder-chip img {
+  width: 22px;
+}

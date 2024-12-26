@@ -1,0 +1,26 @@
+.form-component{
+    height: 260px;
+    width: 230px;
+    border-radius: 6px;
+    background-color: rgb(131, 129, 129);
+    font-family: 'Open Sans';
+    font-weight: 400;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bin-icon{
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.bin-icon img{
+    width: 30px;
+}
