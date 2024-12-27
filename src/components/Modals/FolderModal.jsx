@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./FolderModal.css";
 import { createFolder } from "../../services";
 import { ThemeContext } from "../../App";
-import { useContext } from "react";
 
-const FolderModal = ({ setModal }) => {
+const FolderModal = ({ setModal, fetchFolders }) => {
   const [folderName, setFolderName] = useState("");
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const handleFolderSubmit = async () => {
     if (!folderName.trim()) {
@@ -19,6 +18,7 @@ const FolderModal = ({ setModal }) => {
       alert("Folder created successfully!");
       setFolderName(""); // Clear the input after success
       setModal(false);
+      fetchFolders(); // Fetch updated folders list
     } else {
       alert(result.error || "Failed to create folder.");
     }
@@ -37,10 +37,12 @@ const FolderModal = ({ setModal }) => {
         color: theme === "light" ? "#18181B" : "white",
       }}
     >
-      <h1>Create a folder</h1>
+      <h1>Create a Folder</h1>
       <input
-      style={{backgroundColor: theme === "light" ? "white" : "rgba(31, 31, 35, 1)",
-        color: theme === "light" ? "#18181B" : "white",}}
+        style={{
+          backgroundColor: theme === "light" ? "white" : "rgba(31, 31, 35, 1)",
+          color: theme === "light" ? "#18181B" : "white",
+        }}
         type="text"
         placeholder="Enter folder name"
         value={folderName}
@@ -61,7 +63,11 @@ const FolderModal = ({ setModal }) => {
             border: "1px solid rgba(71, 71, 74, 1)",
           }}
         ></div>
-        <button style={{color: theme === "light" ? "#18181B" : "white"}}  type="button" onClick={handleCancel}>
+        <button
+          style={{ color: theme === "light" ? "#18181B" : "white" }}
+          type="button"
+          onClick={handleCancel}
+        >
           Cancel
         </button>
       </div>

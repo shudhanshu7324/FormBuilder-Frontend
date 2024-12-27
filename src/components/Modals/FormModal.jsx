@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import { useState, useContext } from "react";
 import "./FormModal.css";
 import { ThemeContext } from "../../App";
 import { createForm } from "../../services";
 
-const FormModal = ({setModal}) => {
+const FormModal = ({ setModal, fetchForms }) => {
   const [formName, setFormName] = useState("");
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const handleFormSubmit = async () => {
     if (!formName.trim()) {
@@ -17,7 +17,8 @@ const FormModal = ({setModal}) => {
     if (result.success) {
       alert("Form created successfully!");
       setFormName(""); // Clear input on success
-      setModal(false)
+      setModal(false);
+      fetchForms(); // Fetch updated forms list
     } else {
       alert(result.error || "Failed to create form.");
     }
@@ -25,18 +26,23 @@ const FormModal = ({setModal}) => {
 
   const handleCancel = () => {
     setFormName(""); // Clear input when cancel is clicked
-    setModal(false)
+    setModal(false);
   };
 
   return (
-    <div className="form-modal" style={{
-      backgroundColor: theme === "light" ? "white" : "#18181B",
-      color: theme === "light" ? "#18181B" : "white",
-    }}>
-      <h1>Create a form</h1>
+    <div
+      className="form-modal"
+      style={{
+        backgroundColor: theme === "light" ? "white" : "#18181B",
+        color: theme === "light" ? "#18181B" : "white",
+      }}
+    >
+      <h1>Create a Form</h1>
       <input
-        style={{backgroundColor: theme === "light" ? "white" : "rgba(31, 31, 35, 1)",
-          color: theme === "light" ? "#18181B" : "white",}}
+        style={{
+          backgroundColor: theme === "light" ? "white" : "rgba(31, 31, 35, 1)",
+          color: theme === "light" ? "#18181B" : "white",
+        }}
         type="text"
         placeholder="Enter form name"
         value={formName}
@@ -57,7 +63,11 @@ const FormModal = ({setModal}) => {
             border: "1px solid rgba(71, 71, 74, 1)",
           }}
         ></div>
-        <button style={{color: theme === "light" ? "#18181B" : "white"}} type="button" onClick={handleCancel}>
+        <button
+          style={{ color: theme === "light" ? "#18181B" : "white" }}
+          type="button"
+          onClick={handleCancel}
+        >
           Cancel
         </button>
       </div>

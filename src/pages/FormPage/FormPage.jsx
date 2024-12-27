@@ -15,7 +15,6 @@ const FormPage = () => {
   const [folders, setFolders] = useState([]);
   const [forms, setForms] = useState([]);
 
-  // Fetch folders
   const fetchFolders = useCallback(async () => {
     const result = await getFolders();
     if (result.success) {
@@ -25,7 +24,6 @@ const FormPage = () => {
     }
   }, []);
 
-  // Fetch forms
   const fetchForms = useCallback(async () => {
     const result = await getForms();
     if (result.success) {
@@ -35,51 +33,10 @@ const FormPage = () => {
     }
   }, []);
 
-  // Fetch data when the component mounts
   useEffect(() => {
     fetchFolders();
     fetchForms();
-  }, [fetchFolders, fetchForms]);
-
-  // Refetch folders when the folder modal closes
-  useEffect(() => {
-    if (!isFolderModal) {
-      fetchFolders();
-    }
-  }, [isFolderModal, fetchFolders]);
-
-  // Refetch forms when the form modal closes
-  useEffect(() => {
-    if (!isFormModal) {
-      fetchForms();
-    }
-  }, [isFormModal, fetchForms]);
-
-  const folderModalRef = useRef(null);
-  const formModalRef = useRef(null);
-
-  // Close modals when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        folderModalRef.current &&
-        !folderModalRef.current.contains(event.target)
-      ) {
-        setIsFolderModal(false);
-      }
-      if (
-        formModalRef.current &&
-        !formModalRef.current.contains(event.target)
-      ) {
-        setIsFormModal(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  }, [fetchFolders, fetchForms,]);
 
   return (
     <div
@@ -89,16 +46,10 @@ const FormPage = () => {
         color: theme === "light" ? "#18181B" : "white",
       }}
     >
-      {isFolderModal && (
-        <div ref={folderModalRef}>
-          <FolderModal setModal={setIsFolderModal} />
-        </div>
-      )}
-      {isFormModal && (
-        <div ref={formModalRef}>
-          <FormModal setModal={setIsFormModal} />
-        </div>
-      )}
+      {isFolderModal && <FolderModal setModal={setIsFolderModal}
+  fetchFolders={fetchFolders} />}
+      {isFormModal && <FormModal setModal={setIsFormModal}
+  fetchForms={fetchForms} />}
       <Navbar />
       <div className="folder-list">
         <button onClick={() => setIsFolderModal(true)} className="add-folder">
@@ -106,7 +57,7 @@ const FormPage = () => {
           Create a folder
         </button>
         {folders.map((folder) => (
-          <FolderChip key={folder._id} folder={folder} />
+          <FolderChip key={folder._id} setFolders={setFolders} folder={folder} />
         ))}
       </div>
       <div className="form-list">
@@ -115,7 +66,7 @@ const FormPage = () => {
           <span>Create a typebot</span>
         </button>
         {forms.map((form) => (
-          <Form key={form._id} form={form} />
+          <Form key={form._id} setForms={setForms} form={form} />
         ))}
       </div>
     </div>

@@ -139,6 +139,7 @@ export const createFolder = async (data) => {
 export const createForm = async (data) => {
   try {
     const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("id");
     if (!token) {
       throw new Error("User is not authenticated. Please log in.");
     }
@@ -147,6 +148,7 @@ export const createForm = async (data) => {
       headers: {
         "Content-Type": "application/json",
         Authorization: token,
+        userid: userId
       },
       body: JSON.stringify(data),
     });
@@ -177,9 +179,10 @@ export const getFolders = async () => {
   try {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("id");
-    if (!token) {
+    if (!token || !userId) {
       throw new Error("User is not authenticated. Please log in.");
     }
+
     const response = await fetch(`${BACKEND_URL}/api/v1/allfolders`, {
       method: "GET",
       headers: {
@@ -188,26 +191,41 @@ export const getFolders = async () => {
         userid: userId,
       },
     });
+
     if (response.ok) {
       const result = await response.json();
-      return {
-        success: true,
-        data: result,
-      };
-    } else if (response.status === 400) {
-      const errorData = await response.json();
-      return {
-        success: false,
-        error: errorData.message || "Error in fetching folders",
-      };
-    } else {
-      throw new Error(`Unexpected status code: ${response.status}`);
+      return { success: true, data: result };
     }
+
+    const errorData = await response.json();
+    return { success: false, error: errorData.message || "Error fetching folders" };
   } catch (error) {
-    return {
-      success: false,
-      error: error.message || "Something went wrong. Please try again.",
-    };
+    return { success: false, error: error.message || "Something went wrong" };
+  }
+};
+
+export const deleteFolder = async (folderId) => {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      throw new Error("User is not authenticated. Please log in.");
+    }
+
+    const response = await fetch(`${BACKEND_URL}/api/v1/deletefolder/${folderId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    if (response.ok) {
+      return { success: true };
+    }
+
+    const errorData = await response.json();
+    return { success: false, error: errorData.message || "Error deleting folder" };
+  } catch (error) {
+    return { success: false, error: error.message || "Something went wrong" };
   }
 };
 
@@ -216,9 +234,11 @@ export const getForms = async () => {
   try {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("id");
+
     if (!token) {
       throw new Error("User is not authenticated. Please log in.");
     }
+
     const response = await fetch(`${BACKEND_URL}/api/v1/getforms`, {
       method: "GET",
       headers: {
@@ -227,25 +247,43 @@ export const getForms = async () => {
         userid: userId,
       },
     });
+
     if (response.ok) {
       const result = await response.json();
-      return {
-        success: true,
-        data: result,
-      };
-    } else if (response.status === 400) {
-      const errorData = await response.json();
-      return {
-        success: false,
-        error: errorData.message || "Error in fetching forms",
-      };
-    } else {
-      throw new Error(`Unexpected status code: ${response.status}`);
+      return { success: true, data: result };
     }
+
+    const errorData = await response.json();
+    return { success: false, error: errorData.message || "Error fetching forms" };
   } catch (error) {
-    return {
-      success: false,
-      error: error.message || "Something went wrong. Please try again.",
-    };
+    return { success: false, error: error.message || "Something went wrong" };
   }
 };
+
+export const deleteForm = async (formId) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      throw new Error("User is not authenticated. Please log in.");
+    }
+
+    const response = await fetch(`${BACKEND_URL}/api/v1/deleteform/${formId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
+
+    if (response.ok) {
+      return { success: true, message: "Form deleted successfully" };
+    }
+
+    const errorData = await response.json();
+    return { success: false, error: errorData.message || "Error deleting form" };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+};
+
